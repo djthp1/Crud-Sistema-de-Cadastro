@@ -1,70 +1,98 @@
-# Getting Started with Create React App
+Gerenciamento de Contatos: Aplicação Web Completa 📞
+Este projeto é uma aplicação web de gerenciamento de contatos, desenvolvida com React no frontend, projetada para interagir com uma API RESTful no backend. Permite aos usuários cadastrar, visualizar, editar e excluir informações de contato de forma intuitiva.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Funcionalidades ✨
+Cadastro de Contatos: Adicione novos contatos (nome, telefone, email).
 
-## Available Scripts
+Listagem de Contatos: Visualize todos os contatos existentes.
 
-In the project directory, you can run:
+Edição de Contatos: Atualize as informações de contatos já cadastrados.
 
-### `npm start`
+Exclusão de Contatos: Remova contatos da lista.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Interface Reativa: As alterações são refletidas instantaneamente.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Tecnologias Utilizadas 🚀
+Frontend
+React: Construção da interface de usuário.
 
-### `npm test`
+JavaScript (ES6+): Lógica da aplicação.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+HTML5 & CSS: Estrutura e estilização básica.
 
-### `npm run build`
+Backend
+O backend é construído com tecnologias modernas para criar uma API RESTful robusta e persistir os dados.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Node.js: Ambiente de execução para o backend.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Fastify.js: Framework web de alto desempenho para Node.js, utilizado para criar a API REST.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+SQLite3: Banco de dados relacional leve, baseado em arquivo, para armazenamento dos contatos.
 
-### `npm run eject`
+@fastify/cors: Plugin Fastify para habilitar o CORS (Cross-Origin Resource Sharing), permitindo que o frontend (rodando em uma porta diferente) se comunique com o backend.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Configuração do Backend 🛠️
+Para o funcionamento do frontend, é necessário um servidor backend rodando em http://localhost:3001 que exponha os seguintes endpoints para operações CRUD em contatos:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+GET /api/items: Retorna todos os contatos.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+POST /api/items: Cria um novo contato.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+PUT /api/items/:id: Atualiza um contato existente.
 
-## Learn More
+DELETE /api/items/:id: Exclui um contato.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Passos Essenciais para o Backend (Node.js/Fastify com SQLite3):
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Crie e Inicialize o Projeto Backend:
 
-### Code Splitting
+Crie um novo diretório para o seu backend.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Navegue até esse diretório no terminal.
 
-### Analyzing the Bundle Size
+Inicialize um novo projeto Node.js.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Instale as Dependências:
 
-### Making a Progressive Web App
+Instale fastify, sqlite3 e @fastify/cors.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Crie o Arquivo Principal do Servidor:
 
-### Advanced Configuration
+Crie um arquivo (ex: index.js ou server.js) no diretório do seu backend.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Neste arquivo, você configurará o Fastify, estabelecerá a conexão com o banco de dados SQLite (o arquivo .sqlite será criado automaticamente se não existir) e definirá todas as rotas da API (POST, GET, PUT, DELETE) para gerenciar os contatos.
 
-### Deployment
+Inicie o Servidor Backend:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Execute o arquivo principal do servidor Node.js.
 
-### `npm run build` fails to minify
+Configuração do Frontend 💻
+Com o backend rodando, configure e inicie o frontend:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Navegue até o diretório raiz do seu projeto React.
+
+Instale as Dependências:
+
+npm install # ou yarn install
+
+Inicie a Aplicação:
+
+npm start # ou yarn start
+
+A aplicação será aberta em seu navegador (geralmente http://localhost:3000).
+
+Uso e Interação 🚀
+Formulário de Cadastro/Edição: Preencha os campos (Nome, Telefone, Email) e clique em "Salvar Contato" para adicionar. Se estiver editando um contato, o botão será "Atualizar Contato".
+
+Lista de Contatos: Abaixo do formulário, os contatos cadastrados são exibidos. Use os botões "Editar" para modificar um contato ou "Deletar" para removê-lo.
+
+Considerações Adicionais 🤔
+Estilização: Para melhorar a aparência, adicione CSS personalizado ou use frameworks como Tailwind CSS/Bootstrap.
+
+Validação de Formulário: Recomenda-se implementar validações robustas no frontend e backend.
+
+Mensagens de Feedback: Substitua os alert() por componentes de UI mais amigáveis para notificações.
+
+Tratamento de Erros: Aprimore o tratamento de erros com feedback visual para o usuário.
+
+Variáveis de Ambiente: Utilize variáveis de ambiente para a URL da API em ambientes de produção.
